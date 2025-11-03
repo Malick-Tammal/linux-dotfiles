@@ -1,7 +1,8 @@
 [user]
-	name = Abdel malek tammal 
+	name = Malick-Tammal
 	username = Malick-Tammal
 	emain = malick.adamski@gmail.com
+	email = malick.adamski@gmail.com
 
 [core] 
 	editor = nvim

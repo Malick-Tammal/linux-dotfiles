@@ -1,6 +1,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
+	event = { "BufReadPre", "BufNewFile" },
 
 	-- HACK:
 	opts = {

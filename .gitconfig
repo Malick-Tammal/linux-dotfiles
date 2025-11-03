@@ -1,0 +1,13 @@
+[user]
+	name = Abdel malek tammal 
+	username = Malick-Tammal
+	emain = malick.adamski@gmail.com
+
+[core] 
+	editor = nvim
+
+[color]
+    ui = auto
+
+[init]
+    defaultBranch = main

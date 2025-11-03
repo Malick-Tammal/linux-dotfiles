@@ -1,0 +1,8 @@
+# Theme
+--theme="gruvbox-dark"
+
+
+# Syntax highlighting
+--map-syntax="*.aliases:INI"
+--map-syntax="*.conf:INI"
+

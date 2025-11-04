@@ -6,7 +6,7 @@ return {
 
 	lazy = false,
 	priority = 999,
-	enabled = false,
+	enabled = true,
 
 	--
 	--  INFO: Themes
@@ -53,6 +53,8 @@ return {
 				vim.api.nvim_set_hl(0, "YankyYanked", { bg = palette.hint, fg = palette.bg })
 				vim.api.nvim_set_hl(0, "YankyPut", { bg = palette.warning, fg = palette.bg })
 			elseif colorScheme == "monokai-pro" then
+				-- vim.api.nvim_set_hl(0, "Normal", { bg = "#19181a" })
+				-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "#19181a" })
 				-- Buffer line
 				vim.api.nvim_set_hl(
 					0,
@@ -65,11 +67,33 @@ return {
 					{ bg = palette.button.separator, fg = palette.base.dimmed1 }
 				)
 				vim.api.nvim_set_hl(0, "BufferLineFill", { bg = palette.base.black })
+				vim.api.nvim_set_hl(0, "BufferLineCloseButtonSelected", { fg = palette.base.dimmed1 })
+				vim.api.nvim_set_hl(0, "BufferLineBuffer", { link = "Quote" })
+				vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { link = "Quote" })
+				vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { link = "Quote" })
+				vim.api.nvim_set_hl(
+					0,
+					"BufferLineBackground",
+					{ bold = false, bg = palette.tab.inactiveBackground, fg = palette.tab.inactiveForeground }
+				)
+
+				-- print(vim.inspect(palette))
 
 				-- Telescope
+				vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = palette.base.black })
+				vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = palette.base.black })
+				vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = palette.base.black })
+				vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = palette.base.black })
+
+				vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = palette.base.black })
+				vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = palette.base.black })
+				vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = palette.base.black })
+				vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = palette.base.black })
+
 				vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = palette.base.red, fg = palette.base.dimmed5 })
 				vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = palette.base.yellow, fg = palette.base.dimmed5 })
 				vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = palette.base.blue, fg = palette.base.dimmed5 })
+
 				vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = palette.base.blue })
 
 				-- Cmp ( Completion menu )
@@ -118,9 +142,21 @@ return {
 				vim.api.nvim_set_hl(0, "SnacksPickerDirectory", { fg = palette.base.dimmed2, bg = "none" })
 
 				vim.api.nvim_set_hl(0, "SnacksPickerInputTitle", { fg = palette.base.red, bg = palette.base.blue })
+				vim.api.nvim_set_hl(0, "SnacksIndent", { fg = palette.base.dimmed5 })
+				vim.api.nvim_set_hl(0, "SnacksDashboardText", { fg = palette.base.dimmed2 })
+
+				-- k
 				-- vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = palette.base.red, bg = palette.base.blue })
 				-- vim.api.nvim_set_hl(0, "SnacksPickerPreviewTitle", { fg = palette.base.red, bg = palette.base.blue })
 				-- vim.api.nvim_set_hl(0, "SnacksPickerBoxTitle", { fg = palette.base.red, bg = palette.base.blue })
+
+				-- Mini files
+				vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = palette.base.dimmed3, bg = palette.base.black })
+				vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { fg = palette.base.black, bg = palette.base.green })
+				vim.api.nvim_set_hl(0, "MiniFilesTitle", { fg = palette.base.dimmed1, bg = palette.base.dimmed4 })
+
+				-- Which key
+				vim.api.nvim_set_hl(0, "WhichKeyNormal", { fg = palette.base.dimmed1, bg = palette.base.black })
 			else
 				-- Buffer line
 				vim.api.nvim_set_hl(0, "BufferLineIndicatorSelected", { bg = palette.orange, fg = palette.bg_dim })
@@ -243,8 +279,8 @@ return {
 							"notify",
 						},
 						override = function(c)
-							-- print(vim.inspect(c))
 							colors = c
+							-- print(vim.inspect(c))
 						end,
 					})
 				end,

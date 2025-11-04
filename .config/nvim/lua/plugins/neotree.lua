@@ -25,7 +25,7 @@ return {
 			},
 		},
 		window = {
-			position = "right",
+			position = "left",
 			width = 40,
 
 			-- INFO: Keymaps
@@ -110,7 +110,7 @@ return {
 					-- Change type
 					added = "✚",
 					deleted = "✖",
-					modified = "󱡾",
+					modified = "",
 					renamed = "󰁕",
 					-- Status type
 					untracked = "",

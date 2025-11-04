@@ -48,7 +48,8 @@ return {
 			},
 
 			-- INFO: Diagnostics
-			diagnostics = "nvim_lsp",
+			-- diagnostics = "nvim_lsp",
+			diagnostics = false,
 
 			highlights = {
 				-- Override the selected buffer highlight group

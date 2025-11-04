@@ -6,7 +6,7 @@ return {
 		enabled = true,
 
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp", enabled = true },
+			{ "hrsh7th/cmp-nvim-lsp", enabled = false },
 		},
 
 		config = function()

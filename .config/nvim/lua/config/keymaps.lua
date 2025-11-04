@@ -179,16 +179,16 @@ end, { desc = "Projects" })
 -- INFO: Theme Switcher
 -----------------------------------------------------------
 -- local themeSwitcher = require("plugins.custom.theme-switcher")
---
+
 -- map.set("n", "<leader>v", function()
--- 	themeSwitcher.setup()
+-- 	themeSwitcher.setup() -- Theme switcher "Custom"
 -- end, { desc = "Theme switcher" })
 
--- map.set("n", "<leader>v", "<Cmd>Themify<CR>") -- Theme switcher
+map.set("n", "<leader>v", "<Cmd>Themify<CR>") -- Theme switcher "Themify"
 
-map.set("n", "<leader>v", function()
-	require("nvchad.themes").open({ style = "bordered" })
-end)
+-- map.set("n", "<leader>v", function()
+-- 	require("nvchad.themes").open({ style = "bordered" }) -- Theme switcher "Nvchad"
+-- end)
 
 -----------------------------------------------------------
 --  INFO: Lorem Ipsum

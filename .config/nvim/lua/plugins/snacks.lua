@@ -207,8 +207,8 @@ return {
 				keys = {
 					{
 						text = {
-							{ "", hl = "@diff.delta", width = 2 },
-							{ "Find File", hl = "@diff.delta", width = 30 },
+							{ "", hl = "SnacksDashboardText", width = 2 },
+							{ "Find File", hl = "SnacksDashboardText", width = 30 },
 							{ "[f]", hl = "SnacksDashboardKey" },
 						},
 						key = "f",
@@ -216,8 +216,8 @@ return {
 					},
 					{
 						text = {
-							{ "", hl = "@diff.delta", width = 2 },
-							{ "New File", hl = "@diff.delta", width = 30 },
+							{ "", hl = "SnacksDashboardText", width = 2 },
+							{ "New File", hl = "SnacksDashboardText", width = 30 },
 							{ "[n]", hl = "SnacksDashboardKey" },
 						},
 						key = "n",
@@ -225,8 +225,8 @@ return {
 					},
 					{
 						text = {
-							{ "", hl = "@diff.delta", width = 2 },
-							{ "Recent Files", hl = "@diff.delta", width = 30 },
+							{ "", hl = "SnacksDashboardText", width = 2 },
+							{ "Recent Files", hl = "SnacksDashboardText", width = 30 },
 							{ "[r]", hl = "SnacksDashboardKey" },
 						},
 						key = "r",
@@ -234,8 +234,8 @@ return {
 					},
 					{
 						text = {
-							{ "", hl = "@diff.delta", width = 2 },
-							{ "Explorer", hl = "@diff.delta", width = 30 },
+							{ "", hl = "SnacksDashboardText", width = 2 },
+							{ "Explorer", hl = "SnacksDashboardText", width = 30 },
 							{ "[e]", hl = "SnacksDashboardKey" },
 						},
 						key = "e",
@@ -243,8 +243,8 @@ return {
 					},
 					{
 						text = {
-							{ "󰅨", hl = "@diff.delta", width = 2 },
-							{ "Projects", hl = "@diff.delta", width = 30 },
+							{ "󰅨", hl = "SnacksDashboardText", width = 2 },
+							{ "Projects", hl = "SnacksDashboardText", width = 30 },
 							{ "[p]", hl = "SnacksDashboardKey" },
 						},
 						key = "p",
@@ -252,8 +252,8 @@ return {
 					},
 					{
 						text = {
-							{ "󰊢", hl = "@diff.delta", width = 2 },
-							{ "Lazy Git", hl = "@diff.delta", width = 30 },
+							{ "󰊢", hl = "SnacksDashboardText", width = 2 },
+							{ "Lazy Git", hl = "SnacksDashboardText", width = 30 },
 							{ "[g]", hl = "SnacksDashboardKey" },
 						},
 						key = "g",
@@ -261,8 +261,8 @@ return {
 					},
 					{
 						text = {
-							{ "󰈭", hl = "@diff.delta", width = 2 },
-							{ "Find Text (Grep)", hl = "@diff.delta", width = 30 },
+							{ "󰈭", hl = "SnacksDashboardText", width = 2 },
+							{ "Find Text (Grep)", hl = "SnacksDashboardText", width = 30 },
 							{ "[t]", hl = "SnacksDashboardKey" },
 						},
 						key = "t",
@@ -270,8 +270,8 @@ return {
 					},
 					{
 						text = {
-							{ "", hl = "@diff.delta", width = 2 },
-							{ "Config", hl = "@diff.delta", width = 30 },
+							{ "", hl = "SnacksDashboardText", width = 2 },
+							{ "Config", hl = "SnacksDashboardText", width = 30 },
 							{ "[c]", hl = "SnacksDashboardKey" },
 						},
 						key = "c",
@@ -279,19 +279,17 @@ return {
 					},
 					{
 						text = {
-							{ "󱥚", hl = "@diff.delta", width = 2 },
-							{ "Themes", hl = "@diff.delta", width = 30 },
+							{ "󱥚", hl = "SnacksDashboardText", width = 2 },
+							{ "Themes", hl = "SnacksDashboardText", width = 30 },
 							{ "[v]", hl = "SnacksDashboardKey" },
 						},
 						key = "v",
-						action = function()
-							require("nvchad.themes").open({ style = "bordered" })
-						end,
+						action = ":Themify",
 					},
 					{
 						text = {
-							{ "", hl = "@diff.delta", width = 2 },
-							{ "Quit", hl = "@diff.delta", width = 30 },
+							{ "", hl = "SnacksDashboardText", width = 2 },
+							{ "Quit", hl = "SnacksDashboardText", width = 30 },
 							{ "[q]", hl = "SnacksDashboardKey" },
 						},
 						key = "q",
@@ -310,9 +308,6 @@ return {
     █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    
 	 
  [ malick.dev ] ]],
-			},
-			formats = {
-				footer = { "dsf", align = "left" },
 			},
 			sections = {
 				{ section = "header", padding = 0 },

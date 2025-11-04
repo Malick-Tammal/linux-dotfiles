@@ -3,10 +3,12 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
+		enabled = true,
 
-			{ "hrsh7th/cmp-nvim-lsp", enabled = false },
+		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp", enabled = true },
 		},
+
 		config = function()
 			-- lspconfig plugin
 			-- local lspconfig = require("lspconfig")
@@ -24,6 +26,9 @@ return {
 			-- HACK: LSPs
 
 			-- INFO: LSPs configs
+
+			vim.lsp.config("*", { capabilities = capabilities })
+
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -39,13 +44,15 @@ return {
 			})
 
 			-- INFO: LSPs activation
-			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("ts_ls")
-			vim.lsp.enable("html")
-			vim.lsp.enable("cssls")
-			vim.lsp.enable("jsonls")
-			vim.lsp.enable("emmet_ls")
-			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable({
+				"lua_ls",
+				"ts_ls",
+				"html",
+				"cssls",
+				"jsonls",
+				"emmet_ls",
+				"rust_analyzer",
+			})
 		end,
 	},
 

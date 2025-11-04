@@ -1,6 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
+	enabled = false,
 
 	config = function()
 		local hide_in_width = function()

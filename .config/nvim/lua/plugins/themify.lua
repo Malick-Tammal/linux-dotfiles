@@ -6,6 +6,7 @@ return {
 
 	lazy = false,
 	priority = 999,
+	enabled = false,
 
 	--
 	--  INFO: Themes

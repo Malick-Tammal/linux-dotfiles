@@ -1,6 +1,7 @@
 return {
 	"brenoprata10/nvim-highlight-colors",
 	event = { "BufReadPre", "BufNewFile" },
+	enabled = false,
 
 	config = function()
 		-- Ensure termguicolors is enabled if not already

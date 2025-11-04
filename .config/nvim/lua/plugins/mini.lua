@@ -33,6 +33,12 @@ return {
 				},
 			},
 		})
+		require("mini.files").setup({
+			windows = {
+				preview = true,
+				width_preview = 80,
+			},
+		})
 
 		-- local icons = require("mini.icons")
 		--

@@ -200,31 +200,103 @@ return {
 
 		-- INFO: Dashboard (welcome screen)
 		dashboard = {
+			enabled = true,
+			width = 30,
+			pane_gap = 0,
 			preset = {
 				keys = {
 					{
-						icon = "󰅨 ",
-						key = "p",
-						desc = "Projects",
-						action = ":lua require('plugins.custom.projects').setup()",
+						text = {
+							{ "", hl = "@diff.delta", width = 2 },
+							{ "Find File", hl = "@diff.delta", width = 30 },
+							{ "[f]", hl = "SnacksDashboardKey" },
+						},
+						key = "f",
+						action = ":Telescope find_files",
 					},
-					{ icon = "󰊢 ", key = "g", desc = "Lazy git", action = ":lua Snacks.lazygit() " },
-					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-					{ icon = " ", key = "f", desc = "Find File", action = ":Telescope find_files" },
-					{ icon = "󱄽 ", key = "t", desc = "Find Text (Grep)", action = ":Telescope live_grep" },
 					{
-						icon = " ",
+						text = {
+							{ "", hl = "@diff.delta", width = 2 },
+							{ "New File", hl = "@diff.delta", width = 30 },
+							{ "[n]", hl = "SnacksDashboardKey" },
+						},
+						key = "n",
+						action = ":ene | startinsert",
+					},
+					{
+						text = {
+							{ "", hl = "@diff.delta", width = 2 },
+							{ "Recent Files", hl = "@diff.delta", width = 30 },
+							{ "[r]", hl = "SnacksDashboardKey" },
+						},
 						key = "r",
-						desc = "Recent Files",
 						action = ":Telescope oldfiles",
 					},
 					{
-						icon = " ",
+						text = {
+							{ "", hl = "@diff.delta", width = 2 },
+							{ "Explorer", hl = "@diff.delta", width = 30 },
+							{ "[e]", hl = "SnacksDashboardKey" },
+						},
+						key = "e",
+						action = ":Neotree",
+					},
+					{
+						text = {
+							{ "󰅨", hl = "@diff.delta", width = 2 },
+							{ "Projects", hl = "@diff.delta", width = 30 },
+							{ "[p]", hl = "SnacksDashboardKey" },
+						},
+						key = "p",
+						action = ":lua require('plugins.custom.projects').setup()",
+					},
+					{
+						text = {
+							{ "󰊢", hl = "@diff.delta", width = 2 },
+							{ "Lazy Git", hl = "@diff.delta", width = 30 },
+							{ "[g]", hl = "SnacksDashboardKey" },
+						},
+						key = "g",
+						action = ":lua Snacks.lazygit()",
+					},
+					{
+						text = {
+							{ "󰈭", hl = "@diff.delta", width = 2 },
+							{ "Find Text (Grep)", hl = "@diff.delta", width = 30 },
+							{ "[t]", hl = "SnacksDashboardKey" },
+						},
+						key = "t",
+						action = ":Telescope live_grep",
+					},
+					{
+						text = {
+							{ "", hl = "@diff.delta", width = 2 },
+							{ "Config", hl = "@diff.delta", width = 30 },
+							{ "[c]", hl = "SnacksDashboardKey" },
+						},
 						key = "c",
-						desc = "Config",
 						action = ":lua vim.cmd('cd ~/dotfiles/.config/nvim') vim.cmd('edit ~/dotfiles/.config/nvim/init.lua')",
 					},
-					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+					{
+						text = {
+							{ "󱥚", hl = "@diff.delta", width = 2 },
+							{ "Themes", hl = "@diff.delta", width = 30 },
+							{ "[v]", hl = "SnacksDashboardKey" },
+						},
+						key = "v",
+						action = function()
+							require("nvchad.themes").open({ style = "bordered" })
+						end,
+					},
+					{
+						text = {
+							{ "", hl = "@diff.delta", width = 2 },
+							{ "Quit", hl = "@diff.delta", width = 30 },
+							{ "[q]", hl = "SnacksDashboardKey" },
+						},
+						key = "q",
+						action = ":qa",
+					},
 				},
 				header = [[
            ▄ ▄                   
@@ -237,8 +309,15 @@ return {
 █▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
     █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    
 	 
-[malick.dev]
-				]],
+ [ malick.dev ] ]],
+			},
+			formats = {
+				footer = { "dsf", align = "left" },
+			},
+			sections = {
+				{ section = "header", padding = 0 },
+				{ section = "keys", gap = 0.8, padding = 1 },
+				{ section = "startup", padding = 5 },
 			},
 		},
 	},

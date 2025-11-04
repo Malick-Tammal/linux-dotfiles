@@ -2,6 +2,7 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "*",
 	event = { "BufReadPre", "BufNewFile" },
+	enabled = true,
 
 	-- HACK:
 	opts = {
@@ -13,7 +14,7 @@ return {
 				{
 					filetype = "neo-tree",
 					text = function()
-						local title = "󰲂 Explorer "
+						local title = "󰲂 Explorer | "
 						local path = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 						return title .. '"' .. path .. '"'
 					end,
@@ -29,14 +30,16 @@ return {
 			},
 			show_close_icon = true,
 			show_buffer_close_icons = true,
-			buffer_close_icon = "",
-			close_icon = "",
+			buffer_close_icon = "",
+			close_icon = "",
+
 			modified_icon = "",
 			close_command = "lua MiniBufremove.delete()",
 			right_command = "lua MiniBufremove.delete()",
-			tab_size = 20,
+			tab_size = 15,
 			color_icons = true,
-			separator_style = "thin",
+			separator_style = "slank",
+
 			-- numbers = "ordinal", -- Show numbers
 
 			hover = {
@@ -47,8 +50,17 @@ return {
 			-- INFO: Diagnostics
 			diagnostics = "nvim_lsp",
 
-			-- INFO: Groups
+			highlights = {
+				-- Override the selected buffer highlight group
+				BufferLineBufferSelected = {
+					bold = false, -- Disable bolding
+					-- You can also add other properties like a specific foreground/background color:
+					-- fg = '#ffffff',
+					-- bg = '#41A1C0',
+				},
+			},
 
+			-- INFO: Groups
 			-- groups = {
 			-- 	options = {
 			-- 		toggle_hidden_on_enter = true, -- when you re-enter a hidden group this options re-opens that group so the buffer is visible

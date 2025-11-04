@@ -152,7 +152,7 @@ return {
 		})
 
 		wk.setup({
-			preset = "helix",
+			preset = "classic", -- INFO: classic - modern - helix
 			icons = {
 				-- group = "   ",
 				group = "  ",

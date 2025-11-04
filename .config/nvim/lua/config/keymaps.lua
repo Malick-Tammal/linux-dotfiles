@@ -113,9 +113,15 @@ map.set("n", "<leader>dt", "<Cmd>lua require('tiny-inline-diagnostic').toggle()<
 --  INFO: Neotree
 -----------------------------------------------------------
 map.set("n", "<leader>n", "<Cmd>Neotree toggle<CR>", { desc = "Explorer Neotree (Toggle)" }) -- Toggle Neotree
+map.set("n", "<leader>f", function()
+	local MiniFiles = require("mini.files")
+	if not MiniFiles.close() then
+		MiniFiles.open()
+	end
+end) -- Toggle mini files
 
 -- Search
--- map.set("n", "<C-c>", "<Cmd>noh<CR>", opts)
+map.set("n", "<C-c>", "<Cmd>noh<CR>", opts)
 
 -----------------------------------------------------------
 --  INFO: Telescope
@@ -178,7 +184,11 @@ end, { desc = "Projects" })
 -- 	themeSwitcher.setup()
 -- end, { desc = "Theme switcher" })
 
-map.set("n", "<leader>v", "<Cmd>Themify<CR>") -- Theme switcher
+-- map.set("n", "<leader>v", "<Cmd>Themify<CR>") -- Theme switcher
+
+map.set("n", "<leader>v", function()
+	require("nvchad.themes").open({ style = "bordered" })
+end)
 
 -----------------------------------------------------------
 --  INFO: Lorem Ipsum

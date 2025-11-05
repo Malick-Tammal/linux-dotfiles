@@ -101,32 +101,16 @@ return {
 				--
 				-- vim.api.nvim_set_hl(0, "CmpMenuBorder", { bg = "none" })
 
-				vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = palette.base.dark, fg = palette.base.dimmed2 })
-				vim.api.nvim_set_hl(
-					0,
-					"BlinkCmpMenuSelection",
-					{ bg = palette.base.dimmed5, fg = palette.base.dimmed1 }
-				)
-				-- vim.api.nvim_set_hl(0, "BlinkCmpMenuSel", { bg = "#2e2e2e" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpBorder", { fg = "#2e2e2e", bg = "#1e1e1e" })
-				--
-				-- vim.api.nvim_set_hl(0, "BlinkCmpAbbr", { fg = "#c5cdd9" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpAbbrMatch", { fg = "#61afef", bold = true })
-				--
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = "#c678dd", bg = "#ffffff" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindMethod", { fg = "#c678dd" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindVariable", { fg = "#e5c07b" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = "#e5c07b" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindClass", { fg = "#61afef" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindInterface", { fg = "#56b6c2" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = "#98c379" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindKeyword", { fg = "#56b6c2" })
-				-- vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", { fg = "#be5046", bg = "#ffffff" })
-				-- blink_highlights.lua
-				-- Atom-colored style highlights for latest Blink CMP with icon backgrounds
+				vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = palette.base.black, fg = palette.base.dimmed1 })
+				vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = palette.base.blue, fg = palette.base.dark })
+
+				vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = palette.base.magenta })
+				vim.api.nvim_set_hl(0, "BlinkCmpKindVariable", { fg = palette.base.yellow })
+				vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = palette.base.green })
+				vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", { fg = palette.base.red })
 
 				-- Highlight relative number
-				vim.api.nvim_set_hl(0, "CursorLineNr", { fg = palette.base.blue })
+				vim.api.nvim_set_hl(0, "CursorLineNr", { fg = palette.base.yellow })
 
 				-- Indent line and highlight active
 				vim.api.nvim_set_hl(0, "SnacksIndent", { fg = palette.base.dimmed3 })

@@ -27,7 +27,7 @@ return {
 
 			-- INFO: LSPs configs
 
-			vim.lsp.config("*", { capabilities = capabilities })
+			-- vim.lsp.config("*", { capabilities = capabilities })
 
 			vim.lsp.config("lua_ls", {
 				settings = {

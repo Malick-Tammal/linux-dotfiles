@@ -53,8 +53,6 @@ return {
 				vim.api.nvim_set_hl(0, "YankyYanked", { bg = palette.hint, fg = palette.bg })
 				vim.api.nvim_set_hl(0, "YankyPut", { bg = palette.warning, fg = palette.bg })
 			elseif colorScheme == "monokai-pro" then
-				-- vim.api.nvim_set_hl(0, "Normal", { bg = "#19181a" })
-				-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "#19181a" })
 				-- Buffer line
 				vim.api.nvim_set_hl(
 					0,
@@ -97,10 +95,35 @@ return {
 				vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = palette.base.blue })
 
 				-- Cmp ( Completion menu )
-				vim.api.nvim_set_hl(0, "CmpPmenu", { bg = palette.editor.lineHighlightBackground })
-				vim.api.nvim_set_hl(0, "CmpDocNormal", { bg = palette.editor.lineHighlightBackground })
-				vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base.blue, fg = palette.base.dark })
+				-- vim.api.nvim_set_hl(0, "CmpPmenu", { bg = palette.editor.lineHighlightBackground })
+				-- vim.api.nvim_set_hl(0, "CmpDocNormal", { bg = palette.editor.lineHighlightBackground })
+				-- vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base.blue, fg = palette.base.dark })
+				--
 				-- vim.api.nvim_set_hl(0, "CmpMenuBorder", { bg = "none" })
+
+				vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = palette.base.dark, fg = palette.base.dimmed2 })
+				vim.api.nvim_set_hl(
+					0,
+					"BlinkCmpMenuSelection",
+					{ bg = palette.base.dimmed5, fg = palette.base.dimmed1 }
+				)
+				-- vim.api.nvim_set_hl(0, "BlinkCmpMenuSel", { bg = "#2e2e2e" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpBorder", { fg = "#2e2e2e", bg = "#1e1e1e" })
+				--
+				-- vim.api.nvim_set_hl(0, "BlinkCmpAbbr", { fg = "#c5cdd9" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpAbbrMatch", { fg = "#61afef", bold = true })
+				--
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = "#c678dd", bg = "#ffffff" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindMethod", { fg = "#c678dd" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindVariable", { fg = "#e5c07b" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = "#e5c07b" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindClass", { fg = "#61afef" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindInterface", { fg = "#56b6c2" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = "#98c379" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindKeyword", { fg = "#56b6c2" })
+				-- vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", { fg = "#be5046", bg = "#ffffff" })
+				-- blink_highlights.lua
+				-- Atom-colored style highlights for latest Blink CMP with icon backgrounds
 
 				-- Highlight relative number
 				vim.api.nvim_set_hl(0, "CursorLineNr", { fg = palette.base.blue })
@@ -136,6 +159,7 @@ return {
 
 				-- Scrollbar
 				vim.api.nvim_set_hl(0, "FloatTitle", { fg = palette.base.red, bg = palette.base.dimmed3 })
+				vim.api.nvim_set_hl(0, "CursorIndicator", { fg = palette.base.cyan })
 
 				vim.api.nvim_set_hl(0, "SnacksExplorerBorder", { fg = palette.base.blue, bg = palette.base.dark })
 				vim.api.nvim_set_hl(0, "SnacksExplorerNormal", { fg = palette.base.dimmed2, bg = palette.base.dark })
@@ -144,11 +168,6 @@ return {
 				vim.api.nvim_set_hl(0, "SnacksPickerInputTitle", { fg = palette.base.red, bg = palette.base.blue })
 				vim.api.nvim_set_hl(0, "SnacksIndent", { fg = palette.base.dimmed5 })
 				vim.api.nvim_set_hl(0, "SnacksDashboardText", { fg = palette.base.dimmed2 })
-
-				-- k
-				-- vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = palette.base.red, bg = palette.base.blue })
-				-- vim.api.nvim_set_hl(0, "SnacksPickerPreviewTitle", { fg = palette.base.red, bg = palette.base.blue })
-				-- vim.api.nvim_set_hl(0, "SnacksPickerBoxTitle", { fg = palette.base.red, bg = palette.base.blue })
 
 				-- Mini files
 				vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = palette.base.dimmed3, bg = palette.base.black })

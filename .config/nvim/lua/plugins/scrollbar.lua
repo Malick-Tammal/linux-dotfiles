@@ -12,8 +12,25 @@ return {
 				highlight = "FloatTitle",
 				hide_if_all_visible = false, -- Hides handle if all lines are visible
 			},
+			marks = {
+				Cursor = {
+					highlight = "CursorIndicator",
+				},
+			},
+			excluded_buftypes = {
+				"terminal",
+			},
 			excluded_filetypes = {
 				"notify",
+				"blink-cmp-menu",
+				"dropbar_menu",
+				"dropbar_menu_fzf",
+				"DressingInput",
+				"cmp_docs",
+				"cmp_menu",
+				"noice",
+				"prompt",
+				"TelescopePrompt",
 			},
 		})
 	end,

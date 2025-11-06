@@ -123,7 +123,7 @@ return {
 
 		-- INFO: Picker (Buffers / Smart file picker)
 		picker = {
-			enabled = true,
+			enabled = false,
 			sources = {
 				explorer = {
 					layout = {

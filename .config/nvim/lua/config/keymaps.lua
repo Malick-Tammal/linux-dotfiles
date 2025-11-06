@@ -3,14 +3,6 @@
 --
 
 local map = vim.keymap -- Keymaps
-vim.keymap.set({ "n", "v", "i" }, "<C-y>", function()
-	-- This command tells the LSP to expand the Emmet abbreviation under the cursor
-	vim.lsp.buf.execute_command({
-		command = "emmet.expandAbbreviation",
-		arguments = {},
-	})
-end, { desc = "Emmet Expand Abbreviation", silent = true, buffer = 0 })
------------------------------------------------------------
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 map.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -244,7 +236,7 @@ end)
 -----------------------------------------------------------
 --  INFO: Renamer
 -----------------------------------------------------------
-map.set("n", "<leader>r", ":Renamer ")
+map.set("n", "<leader>r", vim.lsp.buf.rename)
 
 -----------------------------------------------------------
 --  INFO: Yanky
@@ -292,3 +284,17 @@ map.set("n", "<leader>Nr", ":ObsidianRename<CR>")
 map.set("n", "<leader>Ng", ":ObsidianSearch<CR>")
 map.set("n", "<leader>NT", ":ObsidianTOC<CR>")
 map.set("n", "<leader>Nw", ":ObsidianWorkspace<CR>")
+
+-----------------------------------------------------------
+--  INFO: Navigation in insert mode
+-----------------------------------------------------------
+map.set("i", "<C-h>", "<Left>", { noremap = true, silent = true })
+map.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
+map.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
+map.set("i", "<C-l>", "<Right>", { noremap = true, silent = true })
+
+-----------------------------------------------------------
+--  INFO: Color picker "Palettes"
+-----------------------------------------------------------
+map.set("n", "<leader>Ps", ":Shades<CR>")
+map.set("n", "<leader>Ph", ":Huefy<CR>")

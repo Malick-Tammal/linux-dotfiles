@@ -166,6 +166,9 @@ return {
 
 				-- Which key
 				vim.api.nvim_set_hl(0, "WhichKeyNormal", { fg = palette.base.dimmed1, bg = palette.base.black })
+
+				vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorderCmdline", { fg = palette.base.blue })
+				-- vim.api.nvim_set_hl(0, "RenamerNormal", { fg = palette.base.dimmed1, bg = palette.base.dark })
 			else
 				-- Buffer line
 				vim.api.nvim_set_hl(0, "BufferLineIndicatorSelected", { bg = palette.orange, fg = palette.bg_dim })

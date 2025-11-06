@@ -10,7 +10,7 @@ return {
 			fps = 240,
 			max_height = 8,
 			max_width = 150,
-			timeout = 50000,
+			timeout = 400,
 			level = 2,
 			time_formats = {
 				notification = " %H:%M",

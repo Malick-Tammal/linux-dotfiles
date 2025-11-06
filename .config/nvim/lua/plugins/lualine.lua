@@ -77,6 +77,11 @@ return {
 				lualine_a = { mode },
 				lualine_b = { { "branch", icon = "" } },
 				lualine_c = { filename },
+				lualine_d = {
+					function()
+						return require("lsp-progress").progress()
+					end,
+				},
 				lualine_x = {
 					diagnostics,
 					diff,

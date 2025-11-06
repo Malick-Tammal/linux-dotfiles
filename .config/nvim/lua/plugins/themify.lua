@@ -286,6 +286,7 @@ return {
 							-- "which-key",
 							"renamer",
 							"notify",
+							"fidget",
 						},
 						override = function(c)
 							colors = c

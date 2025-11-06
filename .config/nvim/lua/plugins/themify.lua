@@ -95,10 +95,16 @@ return {
 				vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = palette.base.blue })
 
 				-- Cmp ( Completion menu )
-				-- vim.api.nvim_set_hl(0, "CmpPmenu", { bg = palette.editor.lineHighlightBackground })
-				-- vim.api.nvim_set_hl(0, "CmpDocNormal", { bg = palette.editor.lineHighlightBackground })
-				-- vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base.blue, fg = palette.base.dark })
-				--
+				vim.api.nvim_set_hl(0, "CmpPmenu", { bg = palette.base.dark, fg = palette.base.dimmed1 })
+				vim.api.nvim_set_hl(0, "CmpDocNormal", { bg = palette.base.dark, fg = palette.base.dimmed1 })
+
+				vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base.blue, fg = palette.base.dark })
+
+				vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = palette.base.red })
+				vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = palette.base.magenta })
+				vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = palette.base.yellow })
+				vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = palette.base.green })
+
 				-- vim.api.nvim_set_hl(0, "CmpMenuBorder", { bg = "none" })
 
 				vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = palette.base.black, fg = palette.base.dimmed1 })

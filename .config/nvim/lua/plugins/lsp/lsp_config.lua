@@ -6,28 +6,13 @@ return {
 		enabled = true,
 
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp", enabled = false },
+			{ "hrsh7th/cmp-nvim-lsp", enabled = true },
 		},
 
 		config = function()
-			-- lspconfig plugin
-			-- local lspconfig = require("lspconfig")
-
-			-- cmp-nvim-lsp plugin
-			-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-			-- Autocompletion
-			-- local capabilities = cmp_nvim_lsp.default_capabilities()
-
-			-- Blink cmp plugin
-			-- local blink = require("blink.cmp")
-			-- local capabilities = blink.get_lsp_capabilities()
-
 			-- HACK: LSPs
 
 			-- INFO: LSPs configs
-
-			-- vim.lsp.config("*", { capabilities = capabilities })
 
 			vim.lsp.config("lua_ls", {
 				settings = {
@@ -43,6 +28,11 @@ return {
 				},
 			})
 
+			vim.lsp.config("emmet_ls", {
+				filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "svelte", "vue" },
+				showSuggestionsAsSnippets = true,
+			})
+
 			-- INFO: LSPs activation
 			vim.lsp.enable({
 				"lua_ls",
@@ -52,6 +42,7 @@ return {
 				"jsonls",
 				"emmet_ls",
 				"rust_analyzer",
+				"tailwindcss",
 			})
 		end,
 	},

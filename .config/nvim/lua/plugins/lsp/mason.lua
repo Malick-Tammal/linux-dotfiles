@@ -36,6 +36,7 @@ return {
 				"jsonls",
 				"html",
 				"rust_analyzer",
+				"tailwindcss",
 			},
 			automatic_enable = false,
 		})

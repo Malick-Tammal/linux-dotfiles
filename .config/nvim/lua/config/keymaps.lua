@@ -3,7 +3,13 @@
 --
 
 local map = vim.keymap -- Keymaps
-
+vim.keymap.set({ "n", "v", "i" }, "<C-y>", function()
+	-- This command tells the LSP to expand the Emmet abbreviation under the cursor
+	vim.lsp.buf.execute_command({
+		command = "emmet.expandAbbreviation",
+		arguments = {},
+	})
+end, { desc = "Emmet Expand Abbreviation", silent = true, buffer = 0 })
 -----------------------------------------------------------
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes

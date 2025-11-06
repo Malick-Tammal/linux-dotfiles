@@ -12,15 +12,15 @@ local Path = require("plenary.path")
 local scan = require("plenary.scandir")
 
 local projects = {}
-local last_project = nil
 
--- Highlight groups (optional, define in your colorscheme)
+-- Highlight groups
 vim.cmd([[
   hi ProjectDir guifg=#569CD6
   hi ProjectFile guifg=#D4D4D4
   hi GitClean guifg=#6A9955
   hi GitDirty guifg=#F44747
   hi GitNone guifg=#808080
+  hi GitBranch guifg=#C586C0
 ]])
 
 local function expand_path(path)
@@ -48,16 +48,29 @@ end
 local function get_git_status(path)
 	local git_dir = Path:new(path .. "/.git")
 	if not git_dir:exists() then
-		return "", "GitNone"
+		return "", "GitNone", ""
 	end
+
+	-- Git status icon
 	local handle = io.popen('git -C "' .. path .. '" status --porcelain')
 	local status = handle:read("*a")
 	handle:close()
+	local icon, hl
 	if status == "" then
-		return "", "GitClean"
+		icon, hl = "", "GitClean"
 	else
-		return "", "GitDirty"
+		icon, hl = "", "GitDirty"
 	end
+
+	-- Git branch
+	local branch = ""
+	local bhandle = io.popen('git -C "' .. path .. '" rev-parse --abbrev-ref HEAD 2>/dev/null')
+	if bhandle then
+		branch = bhandle:read("*l") or ""
+		bhandle:close()
+	end
+
+	return icon, hl, branch
 end
 
 local function get_file_count(path)
@@ -67,13 +80,28 @@ local function get_file_count(path)
 	return count
 end
 
--- Updated: only change directory and reveal Neo-tree
+-- Open project and update Neo-tree
 local function openProject(target)
-	vim.cmd("cd " .. vim.fn.fnameescape(target))
-	if vim.fn.exists(":Neotree") == 2 then
-		vim.cmd("Neotree reveal")
+	if not vim.loop.fs_stat(target) then
+		vim.notify("Project folder does not exist: " .. target, vim.log.levels.WARN)
+		return
 	end
-	last_project = target
+
+	-- Change directory
+	vim.cmd("cd " .. vim.fn.fnameescape(target))
+
+	-- Close any existing Neo-tree windows
+	if vim.fn.exists(":Neotree") == 2 then
+		for _, win in ipairs(vim.api.nvim_list_wins()) do
+			local buf = vim.api.nvim_win_get_buf(win)
+			local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+			if ft == "neo-tree" then
+				vim.api.nvim_win_close(win, true)
+			end
+		end
+		-- Open Neo-tree at the new project root
+		vim.cmd("Neotree position=left dir=" .. vim.fn.fnameescape(target))
+	end
 end
 
 local function make_entry(entry, base_path)
@@ -83,12 +111,13 @@ local function make_entry(entry, base_path)
 			{ width = 2 }, -- project icon
 			{ width = 2 }, -- git icon
 			{ remaining = true }, -- project name
+			{ width = 12 }, -- git branch
 			{ width = 6 }, -- file count
 		},
 	})
 
 	local full_path = expand_path(base_path) .. "/" .. entry
-	local git_icon, git_hl = get_git_status(full_path)
+	local git_icon, git_hl, git_branch = get_git_status(full_path)
 	local file_count = get_file_count(full_path)
 
 	return {
@@ -98,6 +127,7 @@ local function make_entry(entry, base_path)
 				{ "󰉋", "ProjectDir" },
 				{ git_icon, git_hl },
 				{ entry, "ProjectDir" },
+				{ git_branch, "GitBranch" },
 				{ tostring(file_count), "ProjectFile" },
 			}
 			return displayer(items)
@@ -107,7 +137,6 @@ local function make_entry(entry, base_path)
 	}
 end
 
--- Recursive tree scan with highlights
 local function scan_tree(path, depth, max_depth)
 	depth = depth or 0
 	max_depth = max_depth or 5
@@ -156,7 +185,7 @@ local function listProjects(opts)
 			results_title = opts.results_title or "󰅨 Projects",
 			prompt_prefix = opts.prompt_prefix or " ",
 			layout_strategy = opts.layout_strategy or "vertical",
-			layout_config = opts.layout_config or { width = 0.35, height = 0.7 }, -- slim width
+			layout_config = opts.layout_config or { width = 0.35, height = 0.7 },
 			finder = finders.new_table({
 				results = getDirs(base_path),
 				entry_maker = function(entry)
@@ -166,7 +195,7 @@ local function listProjects(opts)
 			sorter = conf.generic_sorter(opts),
 			previewer = require("telescope.previewers").new_buffer_previewer({
 				define_preview = function(self, entry, _)
-					local tree_lines = scan_tree(entry.path, 0, 5) -- 5 levels deep
+					local tree_lines = scan_tree(entry.path, 0, 5)
 					local lines = {}
 					local highlights = {}
 
@@ -200,15 +229,6 @@ local function listProjects(opts)
 			end,
 		})
 		:find()
-end
-
-projects.openLastProject = function()
-	if last_project and vim.loop.fs_stat(last_project) then
-		openProject(last_project)
-		print("Reopened last project: " .. last_project)
-	else
-		print("No last project recorded or folder no longer exists.")
-	end
 end
 
 local config = {

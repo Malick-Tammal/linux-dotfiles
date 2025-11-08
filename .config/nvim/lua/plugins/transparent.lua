@@ -27,7 +27,7 @@ return {
 				"LineNr",
 				"NonText",
 				"SignColumn",
-				"CursorLine",
+				-- "CursorLine",
 				"CursorLineNr",
 				"StatusLine",
 				"StatusLineNC",

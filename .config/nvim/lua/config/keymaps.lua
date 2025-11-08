@@ -298,3 +298,10 @@ map.set("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 -----------------------------------------------------------
 map.set("n", "<leader>Ps", ":Shades<CR>")
 map.set("n", "<leader>Ph", ":Huefy<CR>")
+
+-----------------------------------------------------------
+--  INFO: Clear notifications
+-----------------------------------------------------------
+map.set("n", "<leader>`", function()
+	require("notify").dismiss()
+end, { desc = "Clear notifications" })

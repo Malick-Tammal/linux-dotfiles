@@ -93,7 +93,7 @@ return {
 		},
 
 		-- INFO: Word highlight
-		words = { enabled = false },
+		words = { enabled = true },
 
 		explorer = {
 			-- layout = {
@@ -123,7 +123,7 @@ return {
 
 		-- INFO: Picker (Buffers / Smart file picker)
 		picker = {
-			enabled = false,
+			enabled = true,
 			sources = {
 				explorer = {
 					layout = {

@@ -1,4 +1,10 @@
--- Bootstrap lazy.nvim
+--
+--  HACK: Lazy
+--
+
+-----------------------------------------------------------
+--  INFO: Bootstrap lazy.nvim
+-----------------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -15,7 +21,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim
+-----------------------------------------------------------
+--  INFO: Setup lazy.nvim
+-----------------------------------------------------------
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
@@ -33,6 +41,7 @@ require("lazy").setup({
 	-- Auto update plugins
 	checker = { enabled = false, notify = false },
 
+	-- UI tweaks
 	-- ui = {
 	-- 	border = "rounded",
 	-- 	size = {
@@ -43,6 +52,7 @@ require("lazy").setup({
 
 	change_detection = { enabled = false },
 
+	-- For performance
 	performance = {
 		rtp = {
 			-- disable some rtp plugins

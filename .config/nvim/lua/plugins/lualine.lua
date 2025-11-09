@@ -12,7 +12,7 @@ return {
 			"mode",
 			separator = { left = "" },
 			fmt = function(str)
-				return " " .. str .. " "
+				return " " .. str .. " "
 			end,
 		}
 

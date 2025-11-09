@@ -3,6 +3,10 @@ return {
 	event = "VeryLazy",
 	enabled = true,
 
+	dependencies = {
+		"bwpge/lualine-pretty-path",
+	},
+
 	config = function()
 		local hide_in_width = function()
 			return vim.fn.winwidth(0) > 100
@@ -76,7 +80,7 @@ return {
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { { "branch", icon = "" } },
-				lualine_c = { filename },
+				lualine_c = { "pretty_path" }, -- filename
 				lualine_d = {
 					function()
 						return require("lsp-progress").progress()

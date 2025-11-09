@@ -16,7 +16,6 @@ return {
 				highlight = "mh", -- Highlight surrounding
 				replace = "mr", -- Replace surrounding
 				update_n_lines = "mn", -- Update `n_lines`
-
 				suffix_last = "l", -- Suffix to search with "prev" method
 				suffix_next = "n", -- Suffix to search with "next" method
 			},
@@ -39,6 +38,8 @@ return {
 				width_preview = 80,
 			},
 		})
+
+		require("mini.operators").setup()
 
 		-- local icons = require("mini.icons")
 		--

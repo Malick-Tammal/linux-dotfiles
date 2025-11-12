@@ -10,6 +10,7 @@ return {
 			build = "make install_jsregexp",
 		},
 		"onsails/lspkind.nvim",
+		"lukas-reineke/cmp-under-comparator",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-calc",
@@ -72,12 +73,23 @@ return {
 
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
+
+				-- Complex menu
 				-- format = function(entry, vim_item)
 				-- 	local kind_icon = lspkind.symbolic(vim_item.kind, { mode = "symbol" }) or ""
-				-- 	vim_item.kind = kind_icon
+				-- 	-- vim_item.kind = kind_icon
+				-- 	vim_item.kind = string.format("%s %s", kind_icon, vim_item.kind)
 				-- 	vim_item.abbr = " " .. vim_item.abbr -- two spaces; adjust as needed
+				-- 	vim_item.menu = ({
+				-- 		nvim_lsp = "[LSP]",
+				-- 		buffer = "[BUF]",
+				-- 		path = "[PATH]",
+				-- 		luasnip = "[SNIP]",
+				-- 	})[entry.source.name] or ""
 				-- 	return vim_item
 				-- end,
+
+				-- Simple menu
 				format = function(entry, vim_item)
 					local icon = lspkind.symbolic(vim_item.kind, { mode = "symbol" }) or ""
 					vim_item.kind = icon
@@ -89,7 +101,20 @@ return {
 
 			--  INFO: Ghost text
 			experimental = {
-				ghost_text = true,
+				ghost_text = false,
+			},
+
+			sorting = {
+				comparators = {
+					require("cmp-under-comparator").under,
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.kind,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.length,
+					cmp.config.compare.order,
+				},
 			},
 		})
 	end,
